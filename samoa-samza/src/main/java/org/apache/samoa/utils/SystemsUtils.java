@@ -121,10 +121,7 @@ public class SystemsUtils {
     }
 
     static String getNameNodeUri() {
-      Configuration config = new Configuration();
-      config.addResource(new Path(coreConfPath));
-      config.addResource(new Path(hdfsConfPath));
-
+      final Configuration config = getConfig();
       return config.get("fs.defaultFS");
     }
 
@@ -140,10 +137,7 @@ public class SystemsUtils {
     }
 
     static String getDefaultSAMOADir() throws IOException {
-      Configuration config = new Configuration();
-      config.addResource(new Path(coreConfPath));
-      config.addResource(new Path(hdfsConfPath));
-
+      final Configuration config = getConfig();
       FileSystem fs = FileSystem.get(config);
       Path defaultDir = new Path(fs.getHomeDirectory(), ".samoa");
       return defaultDir.toString();
@@ -155,10 +149,7 @@ public class SystemsUtils {
     }
 
     static boolean deleteFileIfExist(Path p) {
-      Configuration config = new Configuration();
-      config.addResource(new Path(coreConfPath));
-      config.addResource(new Path(hdfsConfPath));
-
+      final Configuration config = getConfig();
       FileSystem fs;
       try {
         fs = FileSystem.get(config);
@@ -178,9 +169,7 @@ public class SystemsUtils {
      * Write to HDFS
      */
     static String writeToHDFS(File file, String dstPath) {
-      Configuration config = new Configuration();
-      config.addResource(new Path(coreConfPath));
-      config.addResource(new Path(hdfsConfPath));
+      final Configuration config = getConfig();
       logger.info("Filesystem name:{}", config.get("fs.defaultFS"));
 
       // Default samoaDir
@@ -221,9 +210,7 @@ public class SystemsUtils {
      */
     static Object deserializeObjectFromFile(String filePath) {
       logger.info("Deserialize HDFS file:{}", filePath);
-      Configuration config = new Configuration();
-      config.addResource(new Path(coreConfPath));
-      config.addResource(new Path(hdfsConfPath));
+      final Configuration config = getConfig();
 
       Path file = new Path(filePath);
       FSDataInputStream dataInputStream = null;
