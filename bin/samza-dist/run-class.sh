@@ -32,8 +32,9 @@ cd $base_dir
 base_dir=`pwd`
 cd $home_dir
 
-YARN_HOME="${YARN_HOME:-$HOME/.samza}"
-CLASSPATH=$base_dir:$YARN_HOME/conf
+HADOOP_YARN_HOME="${HADOOP_YARN_HOME:-$HOME/.samza}"
+HADOOP_CONF_DIR="${HADOOP_CONF_DIR:-$HADOOP_YARN_HOME/conf}"
+CLASSPATH=$HADOOP_CONF_DIR:$base_dir
 
 if [ -z "$JAVA_HOME" ]; then
   JAVA="java"
