@@ -1,1 +1,0 @@
-samza-dist/run-class.sh

@@ -274,9 +274,10 @@ elif [ $PLATFORM = 'SAMZA' ]; then
         done
 
         DEPLOYABLE=$JAR_PATH
-        HADOOP_CLASSPATH=`hadoop classpath`
+        #HADOOP_CLASSPATH=`hadoop classpath`
+        YARN_CLASSPATH=`yarn classpath`
         /usr/jdk64/jdk1.8.0_40/bin/java -Dsamza.log.dir=$BASE_DIR/logs -Dsamza.container.name=client \
-               -cp $HADOOP_CLASSPATH:$DEPLOYABLE org.apache.samoa.SamzaDoTask $COMPLETE_ARG \
+               -cp $YARN_CLASSPATH:$DEPLOYABLE org.apache.samoa.SamzaDoTask $COMPLETE_ARG \
                --mode=$MODE_ARG --yarn_home=$YARN_HOME/conf --zookeeper=$ZOOKEEPER_HOST:$ZOOKEEPER_PORT --kafka=$KAFKA_BROKER_LIST \
                --jar_package=$JAR_PATH --yarn_am_mem=$YARN_AM_MEMORY --yarn_container_mem=$YARN_CONTAINER_MEMORY \
                --kafka_replication_factor=$KAFKA_REPLICATION_FACTOR --checkpoint_frequency=$CHECKPOINT_FREQUENCY \
