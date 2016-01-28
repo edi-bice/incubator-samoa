@@ -96,7 +96,7 @@ public class SamzaConfigFactory {
   // KAFKA
   public static final String ZOOKEEPER_URI_KEY = "consumer.zookeeper.connect";
   public static final String BROKER_URI_KEY = "producer.bootstrap.servers"; //"producer.metadata.broker.list";
-  public static final String KAFKA_BATCHSIZE_KEY = "producer.batch.num.messages";
+  public static final String KAFKA_BATCHSIZE_KEY = "producer.batch.size";
   public static final String KAFKA_PRODUCER_TYPE_KEY = "producer.producer.type";
   // SERDE
   public static final String SERDE_REGISTRATION_KEY = "kryo.register";
