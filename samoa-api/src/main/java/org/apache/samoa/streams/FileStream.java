@@ -81,7 +81,16 @@ public abstract class FileStream extends AbstractOptionHandler implements Instan
 
   @Override
   public boolean hasMoreInstances() {
-    return !this.hitEndOfStream;
+    if (this.hitEndOfStream) {
+      if (getNextFileReader()) {
+        this.hitEndOfStream = false;
+        return hasMoreInstances();
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
   }
 
   @Override
