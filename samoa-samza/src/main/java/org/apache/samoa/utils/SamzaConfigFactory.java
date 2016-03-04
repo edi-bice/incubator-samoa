@@ -79,11 +79,11 @@ public class SamzaConfigFactory {
   // JOB
   public static final String JOB_FACTORY_CLASS_KEY = "job.factory.class";
   public static final String JOB_NAME_KEY = "job.name";
+  public static final String CONTAINER_MEMORY_KEY = "job.container.memory.mb";
+  public static final String CONTAINER_COUNT_KEY = "job.container.count";
   // YARN
   public static final String YARN_PACKAGE_KEY = "yarn.package.path";
-  public static final String CONTAINER_MEMORY_KEY = "yarn.container.memory.mb";
   public static final String AM_MEMORY_KEY = "yarn.am.container.memory.mb";
-  public static final String CONTAINER_COUNT_KEY = "yarn.container.count";
   // TASK (SAMZA original)
   public static final String TASK_CLASS_KEY = "task.class";
   public static final String TASK_INPUTS_KEY = "task.inputs";
